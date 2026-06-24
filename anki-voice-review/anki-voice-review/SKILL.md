@@ -5,6 +5,8 @@ description: "Review Anki flashcards across text and voice modes using a 3-phase
 
 # Anki Voice Review Skill
 
+**MANDATORY BEFORE ANY ANKI MCP TOOL CALL:** If the user is requesting a review session of any kind (see trigger phrases in the description above), this entire skill file must be read before calling `list_decks`, `find_notes`, `notes_info`, `present_card`, `rate_card`, or any other Anki MCP tool. Calling an Anki MCP tool directly in response to a review request, without having read this file first, is an error — even if the right tool and arguments seem obvious. The 3-phase workflow (text setup → voice review → text batch-apply) only works if Phase 1 is followed exactly; skipping straight to tool calls breaks the workflow before it starts.
+
 ## Overview
 
 This skill bridges the gap between Anki MCP (only available in text mode) and
